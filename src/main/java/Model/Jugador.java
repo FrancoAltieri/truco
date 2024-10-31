@@ -3,13 +3,16 @@ package Model;
 import java.util.ArrayList;
 
 public class Jugador {
-    String nombre;
-    ArrayList<Carta> cartas;
+    private String nombre;
+    private ArrayList<Carta> cartas;
+    private int puntaje;
     public Jugador(String nombre){
         this.nombre = nombre;
+        this.puntaje = 0;
+        this.cartas = new ArrayList<Carta>();
     }
-    public void usarCarta(Carta carta){
-
+    public void usarCarta(int posicionCarta){
+        cartas.remove(cartas.get(posicionCarta));
     }
     public int cantidadCartas(){
         return this.cartas.size();
@@ -26,4 +29,5 @@ public class Jugador {
             habilitado = true;
         return habilitado;
     }
+
 }

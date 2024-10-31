@@ -1,9 +1,10 @@
 package Model;
 import java.util.ArrayList;
-public class Truco {
+public class Juego {
     private ArrayList <Jugador> jugadores;
     private ArrayList <Carta> mazoCartas;
-    public Truco(ArrayList<Jugador>jugadores,ArrayList<Carta>cartas){
+    private administradorPuntos puntaje;
+    public Juego(ArrayList<Jugador>jugadores, ArrayList<Carta>cartas){
         this.jugadores = jugadores;
         this.mazoCartas = cartas;
     }
@@ -13,5 +14,14 @@ public class Truco {
             System.out.println("Carta "+(i+1)+": " + carta.getValor() + " de " + carta.tipoCarta());
         }
     }
+    public boolean juegoTerminado(){
+        boolean terminado = false;
+        if(puntaje.hayGanador()){
+            terminado = true;
+        }
+        return terminado;
+    }
+    public void jugarTurno(Jugador jugador){
 
+    }
 }
