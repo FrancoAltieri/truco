@@ -11,8 +11,11 @@ public class Jugador {
         this.puntaje = 0;
         this.cartas = new ArrayList<Carta>();
     }
-    public void usarCarta(int posicionCarta){
-        cartas.remove(cartas.get(posicionCarta));
+    public String getNombre(){
+        return this.nombre;
+    }
+    public Carta usarCarta(int posicionCarta){
+        return cartas.remove(posicionCarta - 1);
     }
     public int cantidadCartas(){
         return this.cartas.size();
@@ -20,14 +23,7 @@ public class Jugador {
     public Carta obtenerCarta(int posicionCarta){
         return this.cartas.get(posicionCarta);
     }
-    public boolean envidoHabilitado(){
-        Carta carta1 = this.obtenerCarta(0);
-        Carta carta2 = this.obtenerCarta(1);
-        Carta carta3 = this.obtenerCarta(2);
-        boolean habilitado = false;
-        if(carta1.tipoCarta() == carta2.tipoCarta() || carta1.tipoCarta() == carta3.tipoCarta() || carta2.tipoCarta() == carta3.tipoCarta())
-            habilitado = true;
-        return habilitado;
+    public void agregarCarta(Carta carta){
+        this.cartas.add(carta);
     }
-
 }
